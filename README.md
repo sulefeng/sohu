@@ -1,6 +1,6 @@
 # Sohu-Source
 
-《[防搜狐视频](http://community.apicloud.com/bbs/forum.php?mod=viewthread&tid=405&extra=page%3D1)》
+《[仿搜狐视频](http://community.apicloud.com/bbs/forum.php?mod=viewthread&tid=405&extra=page%3D1)》
 
 作者：ringking
 
