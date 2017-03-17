@@ -197,7 +197,7 @@
 	var warehouseheader = $api.byId('warehouseTitle');
 	var offlineheader = $api.byId('offlineTitle');
     var recommandheader = $api.offset(recommandheader);
-    
+	  
 
     var main = $api.byId('main');
     var mainPos = $api.offset(main);
@@ -321,7 +321,7 @@
 	            x:0,
 	            y:marginTop,
 	            w:'auto',
-	            h:api.frameHeight - marginTop - footerPos.h
+	            h:api.winHeight - marginTop - footerPos.h
 	        },
 	        pageParam: {name: 'test'},
 	        bounces: false,
@@ -524,19 +524,26 @@
 		    style: 'dark'
 		});
 
-		var recommandheader = $api.byId('recommandTitle');
-		var hotheader = $api.byId('hotTitle');
-		var warehouseheader = $api.byId('warehouseTitle');
-		var offlineheader = $api.byId('offlineTitle');
+		 recommandheader = $api.byId('recommandTitle');
+		 hotheader = $api.byId('hotTitle');
+		 warehouseheader = $api.byId('warehouseTitle');
+		 offlineheader = $api.byId('offlineTitle');
 
-        var recommandheader = $api.offset(recommandheader);
         
+        var header = $api.dom('#recommandTitle .topbar');
+        var header2 = $api.dom('#hotTitle .topbar');
+        var header3 = $api.dom('#warehouseTitle .topbar');
+        var header4 = $api.dom('#offlineTitle .topbar');
+		$api.fixStatusBar(header);  
+		$api.fixStatusBar(header2);  
+		$api.fixStatusBar(header3);  
+		$api.fixStatusBar(header4);  
+		 recommandheader = $api.offset(recommandheader);
+         main = $api.byId('main');
+         mainPos = $api.offset(main);
 
-        var main = $api.byId('main');
-        var mainPos = $api.offset(main);
-
-		var footer = $api.byId('footer');
-		var footerPos = $api.offset(footer);
+		 footer = $api.byId('footer');
+		 footerPos = $api.offset(footer);
 
 		// 第一次进入打开 recommand body
 		api.openFrame ({
@@ -547,7 +554,7 @@
 	            y:recommandheader.h,
 	            w:'auto',
 	            // h:'auto'
-	            h:api.frameHeight-recommandheader.h -footerPos.h
+	            h:api.winHeight-recommandheader.h -footerPos.h
 	        },
 	        pageParam: {name: 'test'},
 	        bounces: false,
