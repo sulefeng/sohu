@@ -59,7 +59,7 @@
     apiready = function(){
 
 	    var header = $api.byId('topbar');
-	    
+	    $api.fixStatusBar(header); 
 	    var headerPos = $api.offset(header);
 
 	    // api.openFrame ({

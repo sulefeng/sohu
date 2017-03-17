@@ -58,7 +58,7 @@
 	apiready = function(){
 
 	    var header = $api.byId('topbar');
-	    
+	    $api.fixStatusBar(header); 
 	    var headerPos = $api.offset(header);
 
 	    api.openFrame ({
@@ -68,7 +68,7 @@
 	            x:0,
 	            y:headerPos.h,
 	            w:'auto',
-	            h:api.frameHeight - headerPos.h
+	            h:'auto'
 	        },
 	        pageParam: {name: 'test'},
 	        bounces: false,
