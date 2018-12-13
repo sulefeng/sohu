@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
   <title>HTML</title>
-  
+
   <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -25,12 +25,12 @@
 </head>
 
 <body>
-	
+
 
 	<div class="hot_card">
 		<video width="100%" height="200" controls="controls">
 		  	<!-- 视频来源网络地址，可能不稳定 -->
-		  	<source src="http://123.138.61.9/edge.v.iask.com/136101978.mp4?KID=sina,viask&Expires=1414684800&ssig=0Eaczb3BTL&wshc_tag=0&wsts_tag=54504f89&wsid_tag=dd7b80e2&wsiphost=ipdbm" type="video/mp4" />
+		  	<source src="../../image/07.mp4" type="video/mp4" />
 			Your browser does not support the video tag.
 		</video>
 		<!-- <img src="../../image/hotcover03.jpg" alt="" class="hot_cover"> -->
@@ -59,5 +59,30 @@
 <script>
 	function emptyopt () {
 	}
+  apiready = function(){
+    var bvRecognizer = api.require('bvRecognizer');
+  bvRecognizer.startListening({
+             infile: 'fs://luyin1.pcm',
+              outfile:'fs://outfile.pcm',
+              VadEndPoint:0,
+              language:'cmn-Hans-CN',
+  },function(ret){
+          alert(JSON.stringify(ret));
+          });
+    bvRecognizer.stopListening();
+    bvRecognizer.cancel();
+    bvRecognizer.setVolumeChangeListener(function(ret) {
+    console.log(JSON.stringify(ret));
+  });
+  bvRecognizer.startWakeup({
+  wakeupFilePath:'widget://res/WakeUp.bin'
+  },function(ret) {
+    console.log(JSON.stringify(ret));
+  });
+  bvRecognizer.stopWakeup(function(ret) {
+    console.log(JSON.stringify(ret));
+  });
+  }
+
 </script>
 </html>
